@@ -2,53 +2,43 @@ import "./Header.scss";
 
 import React, { useState } from "react";
 
-const Header = () => {
+import { GiHamburgerMenu } from "react-icons/gi";
+import { FaRegQuestionCircle } from "react-icons/fa";
+import { MdOutlineLeaderboard } from "react-icons/md";
+import { FaGear } from "react-icons/fa6";
+import { IoClose } from "react-icons/io5";
+
+const Header = (props) => {
 	const [isHamburgerDisplayed, setIsHamburgerDisplayed] = useState(false);
-	const [isRulesDisplayed, setIsRulesDisplayed] = useState(false);
-	const [isLeaderboardDisplayed, setIsLeaderboardDisplayed] = useState(false);
-	const [isSettingsDisplayed, setIsSettingsDisplayed] = useState(false);
 
 	return (
 		<div className="header">
 			<button onClick={() => setIsHamburgerDisplayed(true)}>
-				HAMBURG
+				<GiHamburgerMenu />
 			</button>
 			<h1>HEADER</h1>
-			<button onClick={() => setIsRulesDisplayed(true)}>RULES</button>
-			<button onClick={() => setIsLeaderboardDisplayed(true)}>
-				LEADERBOARD
+			<button onClick={() => props.setIsRulesDisplayed(true)}>
+				<FaRegQuestionCircle />
 			</button>
-			<button onClick={() => setIsSettingsDisplayed(true)}>
-				SETTINGS
+			<button onClick={() => props.setIsLeaderboardDisplayed(true)}>
+				<MdOutlineLeaderboard />
 			</button>
-			<div className={`modal ${isRulesDisplayed ? "rules" : "hide"}`}>
-				<h1>Rules</h1>
-				<button onClick={() => setIsRulesDisplayed(false)}>
-					CLOSE
-				</button>
-			</div>
-			<div
-				className={`modal ${
-					isLeaderboardDisplayed ? "leaderboard" : "hide"
-				}`}>
-				<h1>Leaderboard</h1>
-				<button onClick={() => setIsLeaderboardDisplayed(false)}>
-					CLOSE
-				</button>
-			</div>
-			<div
-				className={`modal ${
-					isSettingsDisplayed ? "settings" : "hide"
-				}`}>
-				<h1>Settings</h1>
-				<button onClick={() => setIsSettingsDisplayed(false)}>
-					CLOSE
-				</button>
-			</div>
+			<button onClick={() => props.setIsSettingsDisplayed(true)}>
+				<FaGear />
+			</button>
+			<a href="https://jaychkub.github.io/portfolio-v3/">
+				CHECK MY PORTFOLIO
+			</a>
+
 			<div className={`${isHamburgerDisplayed ? "menu" : "hide"}`}>
+				<button
+					className="close-btn"
+					onClick={() => setIsHamburgerDisplayed(false)}>
+					HIDDEN CLOSE
+				</button>
 				<h1>Hamburger</h1>
 				<button onClick={() => setIsHamburgerDisplayed(false)}>
-					CLOSE
+					<IoClose />
 				</button>
 			</div>
 		</div>

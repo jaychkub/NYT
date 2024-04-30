@@ -1,19 +1,33 @@
 import "./Wordle.scss";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+
+import WordleGrid from "../../components/WordleGrid.jsx/WordleGrid";
+import Keyboard from "../../components/Keyboard/Keyboard";
 
 const Wordle = (props) => {
 	const [isStarted, setIsStarted] = useState(false);
 	const [isStatsDisplayed, setIsStatsDisplayed] = useState(false);
+	const [currentGuessIndex, setCurrentGuessIndex] = useState(0);
+	const [theWord, setTheWord] = useState("PAUSE");
+
+	useEffect(() => {
+		console.log("currentGuessIndex: ", currentGuessIndex);
+	}, [currentGuessIndex]);
 
 	return (
 		<>
 			{isStarted ? (
 				<div className="page wordle">
-					<h1>WORDLE</h1>
+					{/* <h1>WORDLE</h1>
 					<button onClick={() => setIsStatsDisplayed(true)}>
 						STATS
-					</button>
+					</button> */}
+					<WordleGrid
+						currentGuessIndex={currentGuessIndex}
+						setCurrentGuessIndex={setCurrentGuessIndex}
+					/>
+					<Keyboard />
 					<div
 						className={`modal ${
 							isStatsDisplayed ? "stats" : "hide"
@@ -26,8 +40,21 @@ const Wordle = (props) => {
 				</div>
 			) : (
 				<div className="page wordle-start">
-					<h1>PRESS PLAY</h1>
+					{/* LOGO */}
+					<h1>Wordle</h1>
+					<p className="description">
+						Get 6 chances to guess a 5-letter word.
+					</p>
 					<button onClick={() => setIsStarted(true)}>PLAY</button>
+					<button onClick={() => props.setIsLoginDisplayed(true)}>
+						Log in
+					</button>
+					<button onClick={() => props.setIsRulesDisplayed(true)}>
+						How to play
+					</button>
+					<p className="date">April 29, 2024</p>
+					<p>No. 1</p>
+					<p>Recreated by Jake Courtney</p>
 				</div>
 			)}
 		</>

@@ -1,0 +1,38 @@
+.wordle-grid {
+	width: 100%;
+	margin-block: auto;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 5px;
+
+	.guess {
+		display: flex;
+		gap: 5px;
+
+		.slot {
+			width: 62px;
+			height: 62px;
+			box-sizing: border-box;
+			border: 2px solid red;
+			background-color: transparent;
+
+			display: flex;
+			justify-content: center;
+
+			font-size: 30px;
+			font-weight: 700;
+			color: white;
+
+			text-transform: capitalize;
+
+			// pointer-events: none;
+		}
+
+		.slot:focus {
+			outline: none;
+		}
+	}
+}

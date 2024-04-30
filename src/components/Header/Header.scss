@@ -10,10 +10,6 @@
 	position: fixed;
 	top: 0;
 
-	.settings {
-		background-color: rgba(green, 0.5);
-	}
-
 	.menu {
 		width: 90svw;
 		height: calc(100svh - 66px);
@@ -22,5 +18,16 @@
 
 		position: fixed;
 		bottom: 0;
+
+		.close-btn {
+			width: 10svw;
+			height: calc(100svh - 66px);
+
+			background-color: rgba(165, 165, 0, 0.9);
+
+			position: absolute;
+			top: 0;
+			right: -10svw;
+		}
 	}
 }

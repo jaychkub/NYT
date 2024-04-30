@@ -1,7 +1,16 @@
 .wordle {
 	background-color: rgba(blue, 0.5);
+
+	display: flex;
+	flex-direction: column;
+	// justify-content: center;
+	// align-items: center;
 }
 
 .wordle-start {
 	background-color: rgba(coral, 0.5);
+
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
