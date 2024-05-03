@@ -6,10 +6,10 @@ import WordleGrid from "../../components/WordleGrid.jsx/WordleGrid";
 import Keyboard from "../../components/Keyboard/Keyboard";
 
 const Wordle = (props) => {
-	const [isStarted, setIsStarted] = useState(false);
+	const [isStarted, setIsStarted] = useState(true);
 	const [isStatsDisplayed, setIsStatsDisplayed] = useState(false);
 	const [currentGuessIndex, setCurrentGuessIndex] = useState(0);
-	const [theWord, setTheWord] = useState("PAUSE");
+	const [theWord, setTheWord] = useState("pause");
 
 	useEffect(() => {
 		console.log("currentGuessIndex: ", currentGuessIndex);
@@ -26,6 +26,8 @@ const Wordle = (props) => {
 					<WordleGrid
 						currentGuessIndex={currentGuessIndex}
 						setCurrentGuessIndex={setCurrentGuessIndex}
+						theWord={theWord}
+						setIsStatsDisplayed={setIsStatsDisplayed}
 					/>
 					<Keyboard />
 					<div

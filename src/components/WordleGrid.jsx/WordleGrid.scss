@@ -27,12 +27,27 @@
 			color: white;
 
 			text-transform: capitalize;
+			text-align: center;
 
 			// pointer-events: none;
+			// cursor: none;
+			caret-color: transparent;
 		}
 
 		.slot:focus {
 			outline: none;
+		}
+
+		.gray {
+			background-color: gray;
+		}
+
+		.yellow {
+			background-color: yellow;
+		}
+
+		.green {
+			background-color: green;
 		}
 	}
 }
